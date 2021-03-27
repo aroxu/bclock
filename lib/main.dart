@@ -1,64 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:bclock/ui/pages/clock.dart';
 
 void main() {
-  runApp(BClock());
+  runApp(
+    BClock(),
+  );
 }
 
 class BClock extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'BClock',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        brightness: Brightness.dark,
       ),
-      home: BClockPage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class BClockPage extends StatefulWidget {
-  BClockPage({Key key, this.title}) : super(key: key);
-  final String title;
-
-  @override
-  _BClockPageState createState() => _BClockPageState();
-}
-
-class _BClockPageState extends State<BClockPage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
+      home: HomePage(title: 'BClock'),
     );
   }
 }
