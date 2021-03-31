@@ -1,4 +1,4 @@
-import 'package:bclock/ui/view/clock.dart';
+import 'package:bclock/ui/view/alarm.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:bclock/ui/holder/zoomableScaffold.dart';
@@ -6,16 +6,16 @@ import 'package:provider/provider.dart';
 
 import 'drawer_menu.dart';
 
-class Clock extends StatefulWidget {
-  Clock({Key key, this.title}) : super(key: key);
+class Alarm extends StatefulWidget {
+  Alarm({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _ClockState createState() => _ClockState();
+  _AlarmState createState() => _AlarmState();
 }
 
-class _ClockState extends State<Clock> with TickerProviderStateMixin {
+class _AlarmState extends State<Alarm> with TickerProviderStateMixin {
   MenuController menuController;
 
   @override
@@ -48,7 +48,7 @@ class _ClockState extends State<Clock> with TickerProviderStateMixin {
     return ChangeNotifierProvider(
       create: (context) => menuController,
       child: ZoomableScaffold(
-        headerText: "시계",
+        headerText: "알람",
         menuScreen: MenuScreen(),
         contentScreen: Layout(
           contentBuilder: (cc) => Container(
@@ -59,7 +59,7 @@ class _ClockState extends State<Clock> with TickerProviderStateMixin {
                 Container(
                   padding: EdgeInsets.fromLTRB(16, 3, 16, 6),
                   margin: EdgeInsets.only(top: 8, left: 8, right: 8, bottom: 0),
-                  child: ClockPage(),
+                  child: AlarmPage(),
                 ),
               ],
             ),

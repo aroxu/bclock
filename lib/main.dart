@@ -1,7 +1,16 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:bclock/ui/pages/clock.dart';
+import 'package:window_size/window_size.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+    setWindowTitle('BClock');
+    setWindowMinSize(const Size(360, 640));
+    setWindowMaxSize(const Size(360, 640));
+  }
   runApp(
     BClock(),
   );
@@ -18,7 +27,7 @@ class BClock extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         brightness: Brightness.dark,
       ),
-      home: HomePage(title: 'BClock'),
+      home: Clock(title: 'BClock'),
     );
   }
 }

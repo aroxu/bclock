@@ -48,7 +48,7 @@ class _ZoomableScaffoldState extends State<ZoomableScaffold>
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               SizedBox(
-                height: 50,
+                height: 32,
               ),
               Padding(
                 padding: EdgeInsets.only(left: 32),
@@ -78,7 +78,7 @@ class _ZoomableScaffoldState extends State<ZoomableScaffold>
                     ),
                     color: CustomColors.clockBG,
                   ),
-                  padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                  padding: EdgeInsets.symmetric(horizontal: 24, vertical: 0),
                   child: widget.contentScreen.contentBuilder(context),
                 ),
               ),

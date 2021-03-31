@@ -1,3 +1,5 @@
+import 'package:bclock/ui/pages/alarm.dart';
+import 'package:bclock/ui/pages/clock.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:bclock/ui/holder/zoomableScaffold.dart';
@@ -50,9 +52,12 @@ class MenuScreen extends StatelessWidget {
                         color: Colors.white,
                         size: 20,
                       ),
-                      onTap: () {
-                        // Navigator.of(context).pop();
-                        // Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context)=> new Demo1()));
+                      onTap: () => {
+                        Navigator.of(context).pushReplacement(
+                          new MaterialPageRoute(
+                            builder: (BuildContext context) => new Clock(),
+                          ),
+                        ),
                       },
                     ),
                     ListTile(
@@ -68,9 +73,12 @@ class MenuScreen extends StatelessWidget {
                         color: Colors.white,
                         size: 20,
                       ),
-                      onTap: () {
-                        // Navigator.of(context).pop();
-                        // Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context)=> new Demo1()));
+                      onTap: () => {
+                        Navigator.of(context).pushReplacement(
+                          new MaterialPageRoute(
+                            builder: (BuildContext context) => new Alarm(),
+                          ),
+                        ),
                       },
                     ),
                     ListTile(

@@ -22,14 +22,13 @@ class _ClockPageState extends State<ClockPage> {
     if (!timezoneString.startsWith('-')) offsetSign = '+';
 
     return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Flexible(
-            flex: 2,
+          Center(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
+              children: [
                 DigitalClockWidget(),
                 Text(
                   formattedDate,
@@ -39,32 +38,9 @@ class _ClockPageState extends State<ClockPage> {
                       color: CustomColors.primaryTextColor,
                       fontSize: 20),
                 ),
-              ],
-            ),
-          ),
-          Flexible(
-            flex: 4,
-            fit: FlexFit.tight,
-            child: Align(
-              alignment: Alignment.center,
-              child: ClockView(
-                size: MediaQuery.of(context).size.height / 2,
-              ),
-            ),
-          ),
-          Flexible(
-            flex: 2,
-            fit: FlexFit.tight,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  'Timezone',
-                  style: TextStyle(
-                      fontFamily: 'avenir',
-                      fontWeight: FontWeight.w500,
-                      color: CustomColors.primaryTextColor,
-                      fontSize: 24),
+                SizedBox(height: 16),
+                ClockView(
+                  size: MediaQuery.of(context).size.height / 3,
                 ),
                 SizedBox(height: 16),
                 Row(
@@ -73,9 +49,9 @@ class _ClockPageState extends State<ClockPage> {
                       Icons.language,
                       color: CustomColors.primaryTextColor,
                     ),
-                    SizedBox(width: 16),
+                    SizedBox(width: 8),
                     Text(
-                      'UTC' + offsetSign + timezoneString,
+                      'UTC$offsetSign$timezoneString',
                       style: TextStyle(
                           fontFamily: 'avenir',
                           color: CustomColors.primaryTextColor,
@@ -127,7 +103,6 @@ class DigitalClockWidgetState extends State<DigitalClockWidget> {
 
   @override
   Widget build(BuildContext context) {
-    print('=====>digital clock updated');
     return Text(
       formattedTime,
       style: TextStyle(
